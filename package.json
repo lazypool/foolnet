@@ -1,0 +1,24 @@
+{
+  "name": "foolnet",
+  "version": "1.0.0",
+  "description": "A static site base on [dumi](https://d.umijs.org).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd docs && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderSerio/foolnet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderSerio/foolnet/issues"
+  },
+  "homepage": "https://github.com/CoderSerio/foolnet#readme"
+}
