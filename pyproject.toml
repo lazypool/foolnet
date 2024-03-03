@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "foolnet"
-version = "0.1.0"
+version = "0.1.2"
 description = "A package designed for the newer about the Neural Network."
 authors = ["lazypool <3416382833@qq.com>"]
 license = "MIT License"

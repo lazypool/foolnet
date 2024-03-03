@@ -3,9 +3,15 @@ import numpy as np
 
 class Dataset:
     def __init__(self, batchsize):
+        self.trainset = IterDataset(batchsize)
+        self.testset = IterDataset(batchsize)
+
+
+class IterDataset:
+    def __init__(self, batchsize):
         self.bs = batchsize
-        self.x = np.zeros(0)
-        self.y = np.zeros(0)
+        self.x = np.ndarray(shape=0)
+        self.y = np.ndarray(shape=0)
 
     def __iter__(self):
         assert len(self.x) == len(self.y)
