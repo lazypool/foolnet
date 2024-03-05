@@ -1,4 +1,4 @@
-# FoolNet - v0.1.2
+# FoolNet - v0.2.0
 
 A package `designed for the new hand` about the Neural Network and Deep Learning.
 
@@ -33,7 +33,7 @@ Requirements: python >= 3.9 ; numpy >= 1.20.0; matplotlib >= 3.8.0
 
 ### Usage
 
-A usage example under version 0.1.2.
+A usage example under version 0.2.0.
 
 ```python
 import numpy as np

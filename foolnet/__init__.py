@@ -1,4 +1,4 @@
-from .activation import ReLU, Softmax
 from .dataset.classification import ClassificationDataset
-from .layers import DenseLayer
-from .lossfn import CrossEntropyLoss
+from .network import ReLU, Softmax
+from .network import DenseLayer
+from .optim import CrossEntropyLoss
