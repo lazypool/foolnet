@@ -2,7 +2,7 @@
 **/*__pycache__
 **/*.pyc
 **/temp
-docs/package_lock.json
+package-lock.json
 node_modules/
 dist/
 server/
