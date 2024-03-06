@@ -1,4 +1,3 @@
 from .dataset.classification import ClassificationDataset
-from .network import ReLU, Softmax
-from .network import DenseLayer
+from .network import DenseLayer, ReLU, Softmax
 from .optim import CrossEntropyLoss

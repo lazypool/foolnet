@@ -1,4 +1,4 @@
-# FoolNet - v0.2.0
+# FoolNet - v0.2.1
 
 A package `designed for the new hand` about the Neural Network and Deep Learning.
 
@@ -10,8 +10,8 @@ Through the `source code` of this package, equipped with the awesome
 `website` we built, you're able to know more clearly about how the
 Neural Network work.
 
-In this package, all the components of Neural Network, such as *activation*,
-*loss function*, *BP algorithm* are built from scratch, totally via the
+In this package, all the components of Neural Network, such as _activation_,
+_loss function_, _BP algorithm_ are built from scratch, totally via the
 `numpy`! Therefore you can easily read the code and understand the meaning
 of this part without extra effort.
 
@@ -33,7 +33,7 @@ Requirements: python >= 3.9 ; numpy >= 1.20.0; matplotlib >= 3.8.0
 
 ### Usage
 
-A usage example under version 0.2.0.
+A usage example under version 0.2.1.
 
 ```python
 import numpy as np
