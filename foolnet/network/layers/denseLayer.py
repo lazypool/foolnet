@@ -1,9 +1,10 @@
 import numpy as np
 
 from ..activation import Activation
+from . import Layer
 
 
-class DenseLayer:
+class DenseLayer(Layer):
     def __init__(self, n_inputs: int, n_output: int, activation: Activation) -> None:
         self.weight = 0.01 * np.random.randn(n_inputs, n_output)
         self.bias = np.zeros((1, n_output))
