@@ -1,7 +1,9 @@
 import numpy as np
 
+from .. import Component
 
-class Activation:
+
+class Activation(Component):
     """
     Base class for activation function, callable.
 

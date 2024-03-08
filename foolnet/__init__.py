@@ -1,3 +1,10 @@
 from .dataset.classification import ClassificationDataset
-from .network import DenseLayer, Logistic, ReLU, Softmax, Tanh
+from .network.activation.relu import ReLU
+from .network.activation.sigmoid import Logistic, Tanh
+from .network.activation.softmax import Softmax
+from .network.layers.denseLayer import DenseLayer
 from .optim import CrossEntropyLoss
+
+__all__ = [
+    "ReLU", "Logistic", "Tanh", "Softmax"
+]
