@@ -5,6 +5,8 @@ from .network.activation.softmax import Softmax
 from .network.layers.denseLayer import DenseLayer
 from .network.stack import Stack
 from .optim import CrossEntropyLoss
+from .optim.optimizer.SGD import SGD
+from .optim.scheduler.simpleDecay import InverseTimeDecay
 
 __all__ = [
     "ReLU", "Logistic", "Tanh", "Softmax"
