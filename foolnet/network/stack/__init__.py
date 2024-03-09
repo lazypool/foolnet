@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, List, Tuple, Union
 
 import numpy as np
 
@@ -8,13 +8,10 @@ from ..layers import Layer
 
 
 class Stack(Component):
-    def __init__(self, *args: Union[Layer, Activation]) -> None:
-        if not all(isinstance(a, Union[Layer, Activation]) for a in args):
-            raise TypeError(
-                f"Unexpected arg type: \
-                all args should be type `Layer` or `Activation`."
-            )
-        self.stack = list(args)
+    def __init__(self, *cmps: Union[Layer, Activation]) -> None:
+        if not all(isinstance(c, Union[Layer, Activation]) for c in cmps):
+            raise TypeError("All args should be type `Layer` or `Activation`.")
+        self.stack = list(cmps)
         self.output = np.ndarray(0)
         self.dinputs = np.ndarray(0)
 
@@ -24,18 +21,25 @@ class Stack(Component):
 
     def forward(self, inputs: np.ndarray) -> None:
         output = inputs
-        for component in self.stack:
-            component.forward(output)
-            output = component.output
+        for cmp in self.stack:
+            cmp.forward(output)
+            output = cmp.output
         self.output = output
 
-    def backward(self, delta: np.ndarray):
+    def backward(self, delta: np.ndarray) -> None:
         dinputs = delta
-        for component in self.stack:
-            component.backward(dinputs)
-            dinputs = component.dinputs
+        for cmp in reversed(self.stack):
+            cmp.backward(dinputs)
+            dinputs = cmp.dinputs
         self.dinputs = dinputs
 
     def show(self) -> None:
-        for component in self.stack:
-            print(component)
+        for cmp in self.stack:
+            print(cmp)
+
+    def parameters(self) -> List[List[np.ndarray]]:
+        return [
+            [cmp.params[k], cmp.d_params[k]]
+            for cmp in self.stack if isinstance(cmp, Layer)
+            for k in cmp.params.keys()
+        ]

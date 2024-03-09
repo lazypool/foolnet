@@ -12,6 +12,10 @@ class Layer(Component):
             Output of this layer, updated by `forward`.
         dinputs (np.ndarray):
             Derivative of loss to this layer's inputs, updated by `backward`.
+        params (dict[str, np.ndarray]):
+            Store piars of parameters' names and corresponding values.
+        d_params (dict[str, np.ndarray]):
+            Store piars of parameters' names and corresponding update amount.
 
     Methods:
         forward(inputs: np.ndarray) -> None:
@@ -26,6 +30,8 @@ class Layer(Component):
     def __init__(self) -> None:
         self.output = np.ndarray(0)
         self.dinputs = np.ndarray(0)
+        self.params = dict()
+        self.d_params = dict()
 
     def forward(self, inputs: np.ndarray) -> None:
         if inputs != None:
@@ -33,8 +39,4 @@ class Layer(Component):
 
     def backward(self, delta: np.ndarray) -> None:
         if delta != None:
-            raise NotImplementedError
-
-    def update(self, lr: float) -> None:
-        if lr != None:
             raise NotImplementedError

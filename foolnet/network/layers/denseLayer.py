@@ -25,23 +25,24 @@ class DenseLayer(Layer):
     """
 
     def __init__(self, n_inputs: int, n_output: int) -> None:
-        self.classname = f"DenseLayer([{n_inputs}, {n_output}])"
-
-        # initialize parameters
-        self.weight = 0.01 * np.random.randn(n_inputs, n_output)
-        self.bias = np.zeros((1, n_output))
-        self.d_weight = np.ndarray(0)
-        self.d_bias = np.ndarray(0)
+        self.params = {
+            'weight': 0.01 * np.random.randn(n_inputs, n_output),
+            'bias': np.zeros((1, n_output)),
+        }
+        self.d_params = {
+            'weight': np.zeros_like(self.params['weight']),
+            'bias': np.zeros_like(self.params['bias']),
+        }
+        self.classname = "DenseLayer(" + str(
+            { name: param.shape 
+                for name, param in self.params.items() }
+        ) + ")"
 
     def forward(self, inputs: np.ndarray) -> None:
         self.inputs = np.array(inputs)
-        self.output = np.dot(self.inputs, self.weight) + self.bias
+        self.output = np.dot(self.inputs, self.params['weight']) + self.params['bias']
 
     def backward(self, delta: np.ndarray) -> None:
-        self.d_weight = np.dot(self.inputs.T, delta)
-        self.d_bias = np.sum(delta, axis=0, keepdims=True)
-        self.dinputs = np.dot(delta, self.weight.T)
-
-    def update(self, lr: float) -> None:
-        self.weight += -lr * self.d_weight
-        self.bias += -lr * self.d_bias
+        self.d_params['weight'] = np.dot(self.inputs.T, delta)
+        self.d_params['bias'] = np.sum(delta, axis=0, keepdims=True)
+        self.dinputs = np.dot(delta, self.params['weight'].T)

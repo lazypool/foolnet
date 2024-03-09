@@ -1,6 +1,6 @@
 {
   "name": "foolnet",
-  "version": "0.2.2",
+  "version": "0.3.2",
   "description": "A static site base on [dumi](https://d.umijs.org).",
   "main": "index.js",
   "directories": {
